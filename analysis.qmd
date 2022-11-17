@@ -2,3 +2,57 @@
 title: "Analysis"
 editor: visual
 ---
+
+# False Colour Composite
+
+![](images/paste-D71077B2.png)
+
+The False Colour Composite Scheme (FCC)
+
+\<Elaborate\>
+
+# Normalized Difference Vegetation Index (NDVI)
+
+The **normalized difference vegetation index (NDVI)** is a simple graphical indicator that can be used to analyze remote sensing measurements, often from a space platform, assessing whether or not the target being observed contains live green vegetation.
+
+$$
+NDVI = \frac{B8 - B4}{B8 + B4}
+$$
+
+![](images/paste-6F79A671.png)
+
+\<Elaborate\>
+
+# Classification using Random Forest
+
+![](images/paste-AF5511BD.png)
+
+\<Elaborate\>
+
+# Unravelling the area of land cover change by class (**km^2^**) 
+
+# Class-to-Class Change Analysis (2018 and 2022)
+
+![](images/paste-E0B367B9.png)
+
+![](images/paste-56B244B5.png)
+
+# Evaluating the accuracy of our results
+
+Producer's Accuracy
+
+-   Ranging between 0-100%, the Producer's Accuracy indicates how accurately the classification results meet the expectation of the creator. It is the probability that a certain land cover of an area on the ground is classified as such.
+
+Kappa Statistic of Agreement:
+
+-   Ranging between -1 and 1, the Kappa Statistic measures the inter-rater reliability of the categorised classes, providing an overall assessment of classification's accuracy, with 1 indicating perfect agreement. It is derived as (observed agreement−chance agreement)/(1−chance agreement).
+
+![](images/paste-3FB37CF3.png)
+
+\<Evaluate the statistics\>
+
+### Limitations
+
+\<Cloud Cover\>
+
+# Recommendations

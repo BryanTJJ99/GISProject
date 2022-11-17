@@ -35,33 +35,35 @@ editor: visual
 
 ## Glossary of Datasets obtained
 
-+-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| Data                                            | Description and Link                                                                                                 |
-+=================================================+======================================================================================================================+
-| **Sentinel-2 Data of Singapore from 2018-2022** | **Link:**                                                                                                            |
-|                                                 |                                                                                                                      |
-|                                                 | [Copernicus Open Access Hub](https://scihub.copernicus.eu/dhus/#/home)                                               |
-|                                                 |                                                                                                                      |
-|                                                 | **Dates Extracted:**                                                                                                 |
-|                                                 |                                                                                                                      |
-|                                                 | 2018 - Feb 10                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | 2019 - Feb 25                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | 2020 - Jan 26                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | 2021 - Apr 25                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | 2022 - Jan 30                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | **Approach:**                                                                                                        |
-|                                                 |                                                                                                                      |
-|                                                 | To extract data with as little cloud cover as possible, in the search bar, filter the cloud cover percentage to 20%. |
-|                                                 |                                                                                                                      |
-|                                                 | ![](images/paste-402AC734.png)                                                                                       |
-+-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
-| **Master Plan 2019 Subzone Boundary (No Sea)**  | [data.gov.sg](https://data.gov.sg/dataset/master-plan-2019-subzone-boundary-no-sea)                                  |
-+-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Data                                            | Description and Link                                                                                                                                                                                                                     |
++=================================================+==========================================================================================================================================================================================================================================+
+| **Sentinel-2 Data of Singapore from 2018-2022** | **Rationale behind choosing Sentinel-2 over LandSat 8:**                                                                                                                                                                                 |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | Sentinel-2 data provides higher spatial resolution and image quality as compared to LandSat 8 data. Since Jurong Lake District covers a smaller area, higher resolution images will allow us to more accurately classify the land cover  |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | **Link:** [Copernicus Open Access Hub](https://scihub.copernicus.eu/dhus/#/home)                                                                                                                                                         |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | **Dates Extracted:**                                                                                                                                                                                                                     |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | 2018 - Feb 10                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | 2019 - Feb 25                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | 2020 - Jan 26                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | 2021 - Apr 25                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | 2022 - Jan 30                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | **Approach:**                                                                                                                                                                                                                            |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | To extract data with as little cloud cover as possible, in the search bar, filter the cloud cover percentage to 20%.                                                                                                                     |
+|                                                 |                                                                                                                                                                                                                                          |
+|                                                 | ![](images/paste-402AC734.png)                                                                                                                                                                                                           |
++-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| **Master Plan 2019 Subzone Boundary (No Sea)**  | [data.gov.sg](https://data.gov.sg/dataset/master-plan-2019-subzone-boundary-no-sea)                                                                                                                                                      |
++-------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 \
 
@@ -71,12 +73,7 @@ editor: visual
 
 ## Data Extraction & Preprocessing
 
-To add the ​​Sentinel-2 files to QGIS, from the menu bar, select 'Layer' → 'Add Layer' → 'Add Raster Layer...'. 
-
-\
-![](_site/images/paste-1DBC856D.png)
-
-\
+To add the ​​Sentinel-2 files to QGIS, from the menu bar, select 'Layer' → 'Add Layer' → 'Add Raster Layer...'. \
 
 The Data Source Manager window will appear. Click the '...' button and browse for bands 2, 3, 4 and 8. Click 'Open', then click 'Add' and 'Close'
 
