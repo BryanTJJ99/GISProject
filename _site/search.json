@@ -88,6 +88,6 @@
     "href": "analysis.html",
     "title": "Analysis",
     "section": "",
-    "text": "s\n\n\ns"
+    "text": "Normalized Difference Vegetation Index (NDVI)\nThe normalized difference vegetation index (NDVI) is a simple graphical indicator that can be used to analyze remote sensing measurements, often from a space platform, assessing whether or not the target being observed contains live green vegetation.\n\\[\nNDVI = \\frac{B8 - B4}{B8 + B4}\n\\]\n\n<Elaborate>\n\n\nClassification using Random Forest\n\n<Elaborate>\n\n\nUnravelling the area of land cover change by class (km2)\n\n\nClass-to-Class Change Analysis (2018 and 2022)\n\n\n\n\nEvaluating the accuracy of our results\nProducer’s Accuracy\n\nRanging between 0-100%, the Producer’s Accuracy indicates how accurately the classification results meet the expectation of the creator. It is the probability that a certain land cover of an area on the ground is classified as such.\n\nKappa Statistic of Agreement:\n\nRanging between -1 and 1, the Kappa Statistic measures the inter-rater reliability of the categorised classes, providing an overall assessment of classification’s accuracy, with 1 indicating perfect agreement. It is derived as (observed agreement−chance agreement)/(1−chance agreement).\n\n\n<Evaluate the statistics>\n\nLimitations\n<Cloud Cover>\n\n\n\nRecommendations"
   }
 ]

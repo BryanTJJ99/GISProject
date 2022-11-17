@@ -61,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -117,9 +118,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#s" id="toc-s" class="nav-link active" data-scroll-target="#s">s</a></li>
-  <li><a href="#s-1" id="toc-s-1" class="nav-link" data-scroll-target="#s-1">s</a></li>
-  <li><a href="#s-2" id="toc-s-2" class="nav-link" data-scroll-target="#s-2">s</a></li>
+  <li><a href="#false-colour-composite" id="toc-false-colour-composite" class="nav-link active" data-scroll-target="#false-colour-composite">False Colour Composite</a></li>
+  <li><a href="#normalized-difference-vegetation-index-ndvi" id="toc-normalized-difference-vegetation-index-ndvi" class="nav-link" data-scroll-target="#normalized-difference-vegetation-index-ndvi">Normalized Difference Vegetation Index (NDVI)</a></li>
+  <li><a href="#classification-using-random-forest" id="toc-classification-using-random-forest" class="nav-link" data-scroll-target="#classification-using-random-forest">Classification using Random Forest</a></li>
+  <li><a href="#unravelling-the-area-of-land-cover-change-by-class-km2" id="toc-unravelling-the-area-of-land-cover-change-by-class-km2" class="nav-link" data-scroll-target="#unravelling-the-area-of-land-cover-change-by-class-km2">Unravelling the area of land cover change by class (<strong>km<sup>2</sup></strong>)</a></li>
+  <li><a href="#class-to-class-change-analysis-2018-and-2022" id="toc-class-to-class-change-analysis-2018-and-2022" class="nav-link" data-scroll-target="#class-to-class-change-analysis-2018-and-2022">Class-to-Class Change Analysis (2018 and 2022)</a></li>
+  <li><a href="#evaluating-the-accuracy-of-our-results" id="toc-evaluating-the-accuracy-of-our-results" class="nav-link" data-scroll-target="#evaluating-the-accuracy-of-our-results">Evaluating the accuracy of our results</a>
+  <ul class="collapse">
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  </ul></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">Recommendations</a></li>
   </ul>
 </nav>
     </div>
@@ -142,15 +150,53 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="s" class="level1">
-<h1>s</h1>
-<p><img src="images/paste-838727CB.png" class="img-fluid"></p>
+<section id="false-colour-composite" class="level1">
+<h1>False Colour Composite</h1>
+<p><img src="images/paste-D71077B2.png" class="img-fluid"></p>
+<p>The False Colour Composite Scheme (FCC)</p>
+<p>&lt;Elaborate&gt;</p>
 </section>
-<section id="s-1" class="level1">
-<h1>s</h1>
+<section id="normalized-difference-vegetation-index-ndvi" class="level1">
+<h1>Normalized Difference Vegetation Index (NDVI)</h1>
+<p>The <strong>normalized difference vegetation index (NDVI)</strong> is a simple graphical indicator that can be used to analyze remote sensing measurements, often from a space platform, assessing whether or not the target being observed contains live green vegetation.</p>
+<p><span class="math display">\[
+NDVI = \frac{B8 - B4}{B8 + B4}
+\]</span></p>
+<p><img src="images/paste-6F79A671.png" class="img-fluid"></p>
+<p>&lt;Elaborate&gt;</p>
 </section>
-<section id="s-2" class="level1">
-<h1>s</h1>
+<section id="classification-using-random-forest" class="level1">
+<h1>Classification using Random Forest</h1>
+<p><img src="images/paste-AF5511BD.png" class="img-fluid"></p>
+<p>&lt;Elaborate&gt;</p>
+</section>
+<section id="unravelling-the-area-of-land-cover-change-by-class-km2" class="level1">
+<h1>Unravelling the area of land cover change by class (<strong>km<sup>2</sup></strong>)</h1>
+</section>
+<section id="class-to-class-change-analysis-2018-and-2022" class="level1">
+<h1>Class-to-Class Change Analysis (2018 and 2022)</h1>
+<p><img src="images/paste-E0B367B9.png" class="img-fluid"></p>
+<p><img src="images/paste-56B244B5.png" class="img-fluid"></p>
+</section>
+<section id="evaluating-the-accuracy-of-our-results" class="level1">
+<h1>Evaluating the accuracy of our results</h1>
+<p>Producer’s Accuracy</p>
+<ul>
+<li>Ranging between 0-100%, the Producer’s Accuracy indicates how accurately the classification results meet the expectation of the creator. It is the probability that a certain land cover of an area on the ground is classified as such.</li>
+</ul>
+<p>Kappa Statistic of Agreement:</p>
+<ul>
+<li>Ranging between -1 and 1, the Kappa Statistic measures the inter-rater reliability of the categorised classes, providing an overall assessment of classification’s accuracy, with 1 indicating perfect agreement. It is derived as (observed agreement−chance agreement)/(1−chance agreement).</li>
+</ul>
+<p><img src="images/paste-3FB37CF3.png" class="img-fluid"></p>
+<p>&lt;Evaluate the statistics&gt;</p>
+<section id="limitations" class="level3">
+<h3 class="anchored" data-anchor-id="limitations">Limitations</h3>
+<p>&lt;Cloud Cover&gt;</p>
+</section>
+</section>
+<section id="recommendations" class="level1">
+<h1>Recommendations</h1>
 
 
 </section>
