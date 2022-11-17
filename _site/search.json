@@ -1,37 +1,86 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "GIS Project",
-    "section": "",
-    "text": "Welcome to our GIS Project web site!"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About The Team",
     "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "text": "Here are some information about us.\n\nReach out to us at:\n\nMegan - https://www.linkedin.com/in/lam-megan\nKyla - https://www.linkedin.com/in/kyla-sim\nBryan - https://www.linkedin.com/in/bryan-tan-jj"
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "Introduction",
+    "objectID": "data_preparation.html",
+    "href": "data_preparation.html",
+    "title": "Data Preparation",
     "section": "",
-    "text": "This is"
+    "text": "Note: under point 7, ‘satisfactory results’ refer to hitting minimally a score of ~70% for our Producer Accuracy for each class\n\n\n\n\n\n\n\n\nTools\nUse Case\n\n\n\n\nDzetsaka Plugin\n(Fun Fact - Dzetsaka is a word representing the objects we use to see the world through, such as satellites, microscope, cameras)\nView Documentation Here\nClassification of raster layer using Random Forest Algorithm.\nMotivation behind choosing Dzetsaka Plugin over SCP for classification:\n\nMore options in using different algorithms to classify and test its accuracy (SVM, Random Forest, KNN, Gaussian Mixture Model)\nFast and easy to use, but yet comparable results to SCP\nWanted to explore other plugins apart from SCP, which was taught in class\n\n\n\nSemi-Automatic Classification Plugin\n\nObtain False Colour Composite, Normalized Difference Vegetation Index (NDVI) of raster maps\nObtain classification accuracy report\nObtain classification report of areas by class\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nData\nDescription and Link\n\n\n\n\nSentinel-2 Data of Singapore from 2018-2022\nLink:\nCopernicus Open Access Hub\nDates Extracted:\n2018 - Feb 10\n2019 - Feb 25\n2020 - Jan 26\n2021 - Apr 25\n2022 - Jan 30\nApproach:\nTo extract data with as little cloud cover as possible, in the search bar, filter the cloud cover percentage to 20%.\n\n\n\nMaster Plan 2019 Subzone Boundary (No Sea)\ndata.gov.sg"
   },
   {
-    "objectID": "intro.html#project-tasks",
-    "href": "intro.html#project-tasks",
-    "title": "Introduction",
-    "section": "Project Tasks",
-    "text": "Project Tasks\nThe project tasks are as follows:\n\nto compile the necessary data\nto derive new data sets"
+    "objectID": "data_preparation.html#data-extraction-preprocessing",
+    "href": "data_preparation.html#data-extraction-preprocessing",
+    "title": "Data Preparation",
+    "section": "Data Extraction & Preprocessing",
+    "text": "Data Extraction & Preprocessing\nTo add the ​​Sentinel-2 files to QGIS, from the menu bar, select ‘Layer’ → ‘Add Layer’ → ‘Add Raster Layer…’. \n\n\n\n\nThe Data Source Manager window will appear. Click the ‘…’ button and browse for bands 2, 3, 4 and 8. Click ‘Open’, then click ‘Add’ and ‘Close’\n \nTo extract the Jurong Lake District area, open the Master Plan 2019 Subzone Boundary (No Sea) file as a new layer. Open the layer’s attribute table and click the ‘Select features using an expression’ button. The ‘Select by Expression’ window will appear. In the ‘Expression’ panel, enter “SUBZONE_N” = ‘JURONG GATEWAY’ OR “SUBZONE_N” = ‘LAKESIDE (BUSINESS)’ OR “SUBZONE_N” = ‘LAKESIDE (LEISURE)’. Click ‘Select Features’, then click ‘Close’.\n\n\nThe Jurong Lake District area will be highlighted in yellow. To save the area, right-click the layer and select ‘Export’ → ‘Save Selected Features As…’ from the context menu.\n\n\n\nThe ‘Save Vector Layer as…’ window will appear.\n\nFor ‘Format’, select ‘GeoPackage’ from the drop-down list.\nFor ‘File name’, click the ‘...’ button to create a ‘JLD’ GeoPackage in the ‘GeoPackage’ folder.\nFor ‘Layer name’, enter ‘Jurong Lake District’.\nFor ‘CRS’, select ‘EPSG:3414 - SVY21 / Singapore TM’ from the drop-down list.\n\nClick ‘OK’. A ‘Jurong Lake District’ layer will appear.\n\n\nRemove the Master Plan 2019 Subzone Boundary (No Sea) layer. To extract Sentinel-2 data within the Jurong Lake District area, from the menu bar, select ‘Raster’ → ‘Extraction’ → ‘Clip Raster by Extent…’.\n\n\nThe ‘Clip Raster by Extent’ window will appear. Click ‘Run as Batch Process…’.\n\nFor ‘Input layer’, select ‘Autofill…’ → ‘Select from Open Layers’ from the context menu. Select all the Sentinel-2 band layers and click ‘OK’.\n\n\n\n\nFor ‘Clipping Extent, click the drop-down arrow for the first band and select ’Calculate from Layer’ → ‘Jurong Lake District’ from the context menu. Then, select ‘Autofill…’ → ‘Fill Down’.\n\n\n\n\nFor ‘Clipped (extent)’, click the ‘...’ button to save the clipped layers as ‘JLD_’. \nIn the ‘Autofill settings’ window, \n\nFor ‘Autofill mode’, select ‘Fill with parameter values’ from the drop-down list.\nFor ‘Parameter to use’, select ‘Input layer’ from the drop-down list.\nClick ‘OK’.\n\n\n\n\n\nCheck the box for ‘Load layers on completion’.\n\n\n\nClick ‘Run’. The clipped band layers will appear. Remove the unclipped band layers."
   },
   {
-    "objectID": "intro.html#the-data",
-    "href": "intro.html#the-data",
-    "title": "Introduction",
-    "section": "The Data",
-    "text": "The Data\nThe following data sets will be used:"
+    "objectID": "data_preparation.html#processing-remote-sensing-images-classification-and-deriving-insights",
+    "href": "data_preparation.html#processing-remote-sensing-images-classification-and-deriving-insights",
+    "title": "Data Preparation",
+    "section": "Processing Remote Sensing Images, Classification and Deriving Insights",
+    "text": "Processing Remote Sensing Images, Classification and Deriving Insights\n\n(A) Creating Remote Sensing Images\nTo create the NDVI layer, from the menu bar, select ‘Raster’ → ‘Raster Calculator’.\n\n\n\nThe ‘Raster Calculator’ window will appear.\n\nFor ‘Raster Calculator Expression’, enter ( “JLD_T48NUG_20210425_B8@1” - “JLD_T48NUG_20210425_B4@1” )  /  ( “JLD_T48NUG_20210425_B8@1” + “JLD_T48NUG_20210425_B4@1” ).\nCheck the box for ‘Create on-the-fly raster instead of writing layer to disk’.\nFor ‘Output CRS’, select ‘EPSG:3414’ from the drop-down list.\n\n\n\nFrom the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear.\n\nFor ​​‘Symbol selection’, select ‘Singleband pseudocolor’ from the drop-down list\nFor ‘Color ramp’, select ‘Greens’ from the drop-down list.\n\nClick ‘Apply’.\n\n\n\n\nSave the raster layer as ‘S2_NDVI_2022’ in GeoTIFF format with CRS EPSG:3414.\n\n\nTo create the False Colour Composite and True Colour Composite layers, from the menu bar, select ‘Raster’ → ‘Miscellaneous’ → ‘Build Virtual Raster…’.\n\n\n\n\nThe ‘Build Virtual Raster’ window will appear.\n\nFor ‘Input layers’, select all the band layers.\nCheck the box next to ‘Place each input file into a separate band’\n\nClick ‘Run’.\n\n\n\n\nFrom the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear.\n\n\nFor the True Colour Composite,\n\nFor ‘Red band’, select ‘Band 3’ from the drop-down list.\nFor ‘Green band’, select ‘Band 2’ from the drop-down list.\nFor ‘Blue band’, select ‘Band 1’ from the drop-down list.\n\n\n\nFor the False Colour Composite,\n\nFor ‘Red band’, select ‘Band 4’ from the drop-down list.\nFor ‘Green band’, select ‘Band 3’ from the drop-down list.\nFor ‘Blue band’, select ‘Band 2’ from the drop-down list.\n\n\n\n\n\nClick ‘Apply’. Save the raster layers as ‘S2_TCC_2022’ and ’S2_FCC_2022 respectively in GeoTIFF format with CRS EPSG:3414.\n\n\n\n\n(B) Classification using Dzetsaka plugin\nTo create the classification training samples, from the menu bar, select ‘Layer’ → ‘Create Layer’ → ‘New Shapefile Layer…’.\n\n\nThe ‘New Shapefile Layer’ window will appear. \n\nFor ‘File name’, click the ‘...’ button to create a ‘S2_YT_train_2022’ file.\nFor ‘Geometry type’, select ‘Polygon’ from the drop-down list.\nFor ‘Additional dimensions’, select ‘EPSG:3414’.\nCreate new fields ‘class’ | Integer | 10 and ‘className’ | String | 100.\nRemove the ‘id’ field.\n\nClick ‘OK’.\n\n\nFrom the toolbar, click the ‘Toggle Editing’ button, then click the ‘Add Polygon Feature’ button.\n\n\nLeft-click a sample site to define the ROI vertices and right-click to define the last vertex to close the polygon. Make samples according to the following classes:\n\n\n\nclass\nclassName\n\n\n\n\n10\nWater\n\n\n20\nVegetation\n\n\n30\nBuilt-up\n\n\n40\nBare land\n\n\n50\nImpervious surfaces\n\n\n\n\n\n\n\nRepeat this process to create the classification test samples using different sample sites. Name the file ‘S2_YT_test_2022’.\n\n\nInstall the Dzetsaka plugin. From the menu bar, select ‘Plugins’ → ‘dzetsaka’ → ‘classification dock’.\n\n\nThe Dzetsaka classification dock will appear.\n\nFor ‘The image to classify’, select ‘S2_FCC_2022’ from the drop-down list.\nFor ‘Your ROI’, select ‘S2_YT_train_2022’ from the drop-down list.\nFor ‘Column name where class number is stored’, select ‘class’ from the drop-down list.\nClick the gear icon to open the settings panel. For ‘Classifier’, select ‘Random Forest’ from the drop-down list.\n\nClick ‘Perform the classification’. Save the output layer as ‘S2_RF_2022’ in GeoTIFF format with CRS EPSG:3414.\n\n\nFrom the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear. \n\nFor ​​‘Symbol selection’, select ‘Paletted/Unique values’ from the drop-down list.\nFor ‘Color ramp’, select ‘Random colors’.\n\nClick ‘Classify’. \n\nDouble-click the ‘Label’ field for each value and rename them according to the respective class names.\n\nClick ‘Apply’.\n\n\n\n\n(C) Accuracy Calculation using SCP Postprocessing\n\nGo to SCP → Postprocessing → Accuracy\nSemi-Automatic Classification Plugin window should open up.\n\nUnder ‘Select the classification to assess’, select ‘S2_RF_2022’.\nUnder ‘Select the reference vector or raster’, select ‘S2_YT_test_2022’.\nIf layers do not show, click on the  button to refresh the layers, and reselect.\nWindow should look like this.\n\n\nClick on ‘Run’.\nLocal file window named ‘Save error matrix raster output’ should open up.\nUnder ‘File name’, type in ‘22_YT_ML’.\nClick ‘Save’ to save the output layer as file name.\n\n\n\nOnce saving is done, output window should look like this.\n\n\nScroll down to view the full results.\nTake note of the Overall Accuracy [%] and Kappa hat classification values, as well as the PA [%] (Producer’s Accuracy) and Kappa hat of each class.\n\n\nFurthermore, layer window should have an additional layer ‘22_YT_ML’.\n\n\n\n\n\nLayer should look like this.\n\n\n\n\n(D) Obtaining Classification Report\n\nGo to SCP → Postprocessing → Classification Report\nIn the SCP window, under ‘Select the classification’, select ‘S2_RF_2022’.\nWindow should look like this.\n\n\n\nClick ‘Run’.\nSave Classification report CSV file name as ‘22_classification’.\n\n\n\nClick ‘Save’.\nOutput window should look similar to this.\nNotice that the output shows each class’ total area as well as % area in the classified raster that you selected.\n\n\n\nOpening up the local directory where you saved the ‘22_classification’ CSV file, it should look similar to this."
+  },
+  {
+    "objectID": "documentation.html#resources-on-data-extraction-classification-and-statistical-analysis",
+    "href": "documentation.html#resources-on-data-extraction-classification-and-statistical-analysis",
+    "title": "Documentation",
+    "section": "Resources on data extraction, classification, and statistical analysis",
+    "text": "Resources on data extraction, classification, and statistical analysis\n\nLandcover change detection using QGIS. Land use landcover change detection\nDzetsaka Plugin - Random Forest Classification\nUN Step-by-Step: Land Cover Change Detection through Supervised Classification\nCalculating Kappa\nUN-REDD Programme - Land cover classification and validation\nSatellite Imagery and GIS Maps for Land Cover and Change Detection\nMonitoring and predicting land use and land cover changes using remote sensing and GIS techniques—A case study of a hilly area, Jiangle, China"
+  },
+  {
+    "objectID": "documentation.html#resources-on-singapores-vegetation",
+    "href": "documentation.html#resources-on-singapores-vegetation",
+    "title": "Documentation",
+    "section": "Resources on Singapore’s vegetation",
+    "text": "Resources on Singapore’s vegetation\n\nThe vegetation of Singapore - an updated map\nGlobal Forest Watch\nSingapore signs declaration to reverse deforestation\nPictures show how deforestation has changed Singapore"
+  },
+  {
+    "objectID": "documentation.html#resources-on-jurong-lake-district",
+    "href": "documentation.html#resources-on-jurong-lake-district",
+    "title": "Documentation",
+    "section": "Resources on Jurong Lake District",
+    "text": "Resources on Jurong Lake District\n\nThe Present and Future of Jurong Property\nJurong Lake District"
+  },
+  {
+    "objectID": "documentation.html#resources-on-recommendations-to-improve-vegetation-index-in-cities",
+    "href": "documentation.html#resources-on-recommendations-to-improve-vegetation-index-in-cities",
+    "title": "Documentation",
+    "section": "Resources on recommendations to improve vegetation index in cities",
+    "text": "Resources on recommendations to improve vegetation index in cities\n\nPeople are planting tiny urban forests to boost biodiversity and fight climate change\nUrban Vegetation Cover Change in Melbourne"
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Urban Sensing With Satellites - Jurong Lake District",
+    "section": "Overview",
+    "text": "Overview\nUrban Sensing With Satellites - Jurong Lake District is a project under the module SMT201 Geographic Information Systems for Urban Planning by Professor Kam Tin Seong in Singapore Management University (SMU).\nThe development of Jurong Lake District (JLD) is a stark contrast against Singapore’s long standing issues surrounding high rates of deforestation island-wide, which reached a total tree cover loss of 1.4% from 2002 - 2021. JLD is instead set to be not only Singapore’s 2nd city centre, but also a model of urban sustainability under the Singapore Green Plan 2030. Its immense importance and potential as a turning point in Singapore’s future development towards a more sustainable city has motivated our team to choose it as our prime area of analysis. \nTherefore, the objectives of our project are as follows:\n\nTo detect land cover change (how much forested land has been lost to urban land) use from 2018-2022 in JLD using Sentinel-2 data.\nTo recommend suitable strategies to reduce forested land loss in JLD based on insights from our analysis.\n\nAs for our methodology, instead of solely using the Semi-automatic Classification Plugin (SCP), we aim to explore a different method of classification using the Dzetsaka Plugin. We will then be able to validate said method by generating an accuracy report. This will supplement our main classification report, which depicts the exact percentage and area of each assigned class (water, vegetation, built-up, bare land, impervious surfaces).\nOur key findings include a clear inverse relationship between vegetation and built-up areas, observed as a decrease in vegetation area by 3.08km² and increase in built-up area by 4.05km². This is to be expected, given that land in Jurong Lake District is being zoned for transformation into the largest mixed-use business district outside of the city centre. To achieve URA’s vision for JLD as a sustainable urban hub, a balance must be struck between the preservation of existing greenery and the development of new built areas. This will minimise disruptions to the local biodiversity and reduce urban heat, all while acting as protection for the mental well-being of the local populace."
+  },
+  {
+    "objectID": "index.html#what-about-singapores-greenery-landscape",
+    "href": "index.html#what-about-singapores-greenery-landscape",
+    "title": "Urban Sensing With Satellites - Jurong Lake District",
+    "section": "What about Singapore’s Greenery landscape?",
+    "text": "What about Singapore’s Greenery landscape?\nOver the last century, Singapore has lost over 90% of its original forestry to colonial profiteering, urbanisation and industrialisation. Tied with this is probably the loss of many species of plants and animals indigenous to Singapore (Kopi, n.d.). Deforestation and the loss of greenery has been a consistent problem even for the tiny island known as the “Garden City”. From 2002 to 2021, Singapore lost 37ha of humid primary forest, making up 1.4% of its total tree cover loss in the same time period (Global Forest Watch, n.d.). \nAlthough Singapore has signed a declaration that aims to halt and reverse deforestation by 2030 (Singapore Business Review, 2021), there are yet to be any solid plans as to how it will be implemented. Additionally, to address the problem, we believe in the importance of acknowledging our impact on the wildlife and forests over the years.\n\n\n\nThe vegetation of Singapore (2011) - click on image to visit source"
+  },
+  {
+    "objectID": "index.html#project-motivation---the-case-for-jurong-lake-district",
+    "href": "index.html#project-motivation---the-case-for-jurong-lake-district",
+    "title": "Urban Sensing With Satellites - Jurong Lake District",
+    "section": "Project Motivation - The Case for Jurong Lake District",
+    "text": "Project Motivation - The Case for Jurong Lake District\nWe chose the 360-hectare Jurong Lake District (JLD) due to the government’s plan in setting it to become Singapore’s largest business and leisure district outside of the city centre. However, what differentiates it from our current city centre is that JLD has been identified as a model for urban sustainability under the Singapore Green Plan 2030. The aim of the district thus extends beyond just promoting business, into supporting Singapore’s ambition to be a carbon services hub and a leading centre for green finance in Asia and globally. With the vision for a new and ‘green’ JLD, we hope to see a decrease or halt in the loss of vegetation as promised in that area.\n\nThus, to further educate ourselves and our peers on the environmental issues surrounding Singapore and its future developmental plans, we have decided to evaluate the current state of progress towards this vision by using JLD as our prime area of analysis. We conducted land cover change detection from 2018 to 2022 in JLD using Sentinel-2 satellite data, focusing on the loss of greenery to give way to new developments and possible forest preservation strategies in hopes of contributing to a greener Singapore."
+  },
+  {
+    "objectID": "poster.html",
+    "href": "poster.html",
+    "title": "poster",
+    "section": "",
+    "text": "View and download the PDF version on Canva here: Urban Sensing (JLD) Poster"
   }
 ]

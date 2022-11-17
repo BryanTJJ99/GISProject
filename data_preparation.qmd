@@ -1,0 +1,372 @@
+---
+title: "Data Preparation"
+editor: visual
+---
+
+# The TL;DR
+
+## Our Process Flow in a diagram:
+
+![Note: under point 7, 'satisfactory results' refer to hitting minimally a score of \~70% for our Producer Accuracy for each class](images/paste-3F9CBA29.png)
+
+## Glossary of tools utilized
+
++-----------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| Tools                                                                                                                             | Use Case                                                                                                                           |
++===================================================================================================================================+====================================================================================================================================+
+| Dzetsaka Plugin                                                                                                                   | Classification of raster layer using Random Forest Algorithm.                                                                      |
+|                                                                                                                                   |                                                                                                                                    |
+| (Fun Fact - Dzetsaka is a word representing the objects we use to see the world through, such as satellites, microscope, cameras) | Motivation behind choosing Dzetsaka Plugin over SCP for classification:                                                            |
+|                                                                                                                                   |                                                                                                                                    |
+| [View Documentation Here](https://github.com/nkarasiak/dzetsaka)                                                                  | -   More options in using different algorithms to classify and test its accuracy (SVM, Random Forest, KNN, Gaussian Mixture Model) |
+|                                                                                                                                   |                                                                                                                                    |
+|                                                                                                                                   | -   Fast and easy to use, but yet comparable results to SCP                                                                        |
+|                                                                                                                                   |                                                                                                                                    |
+|                                                                                                                                   | -   Wanted to explore other plugins apart from SCP, which was taught in class                                                      |
++-----------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| Semi-Automatic Classification Plugin                                                                                              | -   Obtain False Colour Composite, Normalized Difference Vegetation Index (NDVI) of raster maps                                    |
+|                                                                                                                                   |                                                                                                                                    |
+|                                                                                                                                   | -   Obtain classification accuracy report                                                                                          |
+|                                                                                                                                   |                                                                                                                                    |
+|                                                                                                                                   | -   Obtain classification report of areas by class                                                                                 |
++-----------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+|                                                                                                                                   |                                                                                                                                    |
++-----------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+
+## Glossary of Datasets obtained
+
++-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+| Data                                            | Description and Link                                                                                                 |
++=================================================+======================================================================================================================+
+| **Sentinel-2 Data of Singapore from 2018-2022** | **Link:**                                                                                                            |
+|                                                 |                                                                                                                      |
+|                                                 | [Copernicus Open Access Hub](https://scihub.copernicus.eu/dhus/#/home)                                               |
+|                                                 |                                                                                                                      |
+|                                                 | **Dates Extracted:**                                                                                                 |
+|                                                 |                                                                                                                      |
+|                                                 | 2018 - Feb 10                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | 2019 - Feb 25                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | 2020 - Jan 26                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | 2021 - Apr 25                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | 2022 - Jan 30                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | **Approach:**                                                                                                        |
+|                                                 |                                                                                                                      |
+|                                                 | To extract data with as little cloud cover as possible, in the search bar, filter the cloud cover percentage to 20%. |
+|                                                 |                                                                                                                      |
+|                                                 | ![](images/paste-402AC734.png)                                                                                       |
++-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+| **Master Plan 2019 Subzone Boundary (No Sea)**  | [data.gov.sg](https://data.gov.sg/dataset/master-plan-2019-subzone-boundary-no-sea)                                  |
++-------------------------------------------------+----------------------------------------------------------------------------------------------------------------------+
+
+\
+
+\
+
+# Comprehensive Guide for Replication
+
+## Data Extraction & Preprocessing
+
+To add the ​​Sentinel-2 files to QGIS, from the menu bar, select 'Layer' → 'Add Layer' → 'Add Raster Layer...'. 
+
+\
+![](_site/images/paste-1DBC856D.png)
+
+\
+
+The Data Source Manager window will appear. Click the '...' button and browse for bands 2, 3, 4 and 8. Click 'Open', then click 'Add' and 'Close'
+
+![](images/paste-98AF68E8.png) 
+
+To extract the Jurong Lake District area, open the Master Plan 2019 Subzone Boundary (No Sea) file as a new layer. Open the layer's attribute table and click the 'Select features using an expression' button. The 'Select by Expression' window will appear. In the 'Expression' panel, enter "SUBZONE_N" = 'JURONG GATEWAY' OR "SUBZONE_N" = 'LAKESIDE (BUSINESS)' OR "SUBZONE_N" = 'LAKESIDE (LEISURE)'. Click 'Select Features', then click 'Close'.
+
+![](images/paste-9B8F4BD5.png)\
+
+The Jurong Lake District area will be highlighted in yellow. To save the area, right-click the layer and select 'Export' → 'Save Selected Features As...' from the context menu.
+
+![](images/paste-FE8C702C.png)
+
+\
+
+The 'Save Vector Layer as...' window will appear.
+
+-   For 'Format', select 'GeoPackage' from the drop-down list.
+
+-   For 'File name', click the '\...' button to create a 'JLD' GeoPackage in the 'GeoPackage' folder.
+
+-   For 'Layer name', enter 'Jurong Lake District'.
+
+-   For 'CRS', select 'EPSG:3414 - SVY21 / Singapore TM' from the drop-down list.
+
+Click 'OK'. A 'Jurong Lake District' layer will appear.
+
+![](images/paste-76FB9AFF.png)\
+
+Remove the Master Plan 2019 Subzone Boundary (No Sea) layer. To extract Sentinel-2 data within the Jurong Lake District area, from the menu bar, select 'Raster' → 'Extraction' → 'Clip Raster by Extent...'.
+
+![](images/paste-F006445F.png)\
+
+The 'Clip Raster by Extent' window will appear. Click 'Run as Batch Process...'.
+
+-   For 'Input layer', select 'Autofill...' → 'Select from Open Layers' from the context menu. Select all the Sentinel-2 band layers and click 'OK'.
+
+![](images/paste-7B9A9322.png)\
+
+-   For 'Clipping Extent, click the drop-down arrow for the first band and select 'Calculate from Layer' → 'Jurong Lake District' from the context menu. Then, select 'Autofill...' → 'Fill Down'.
+
+![](images/paste-8E18F015.png)\
+
+-   For 'Clipped (extent)', click the '\...' button to save the clipped layers as 'JLD\_'. 
+
+-   In the 'Autofill settings' window, 
+
+    -   For 'Autofill mode', select 'Fill with parameter values' from the drop-down list.
+
+    -   For 'Parameter to use', select 'Input layer' from the drop-down list.
+
+    -   Click 'OK'.
+
+![](images/paste-527888B3.png)\
+
+-   Check the box for 'Load layers on completion'.
+
+\
+![](images/paste-ED7F5146.png)
+
+Click 'Run'. The clipped band layers will appear. Remove the unclipped band layers.
+
+![](images/paste-08711D7E.png)
+
+## Processing Remote Sensing Images, Classification and Deriving Insights
+
+### (A) Creating Remote Sensing Images
+
+To create the NDVI layer, from the menu bar, select 'Raster' → 'Raster Calculator'.\
+
+![](images/paste-73DB0869.png)\
+
+The 'Raster Calculator' window will appear.
+
+-   For 'Raster Calculator Expression', enter ( "JLD_T48NUG_20210425_B8\@1" - "JLD_T48NUG_20210425_B4\@1" )  /  ( "JLD_T48NUG_20210425_B8\@1" + "JLD_T48NUG_20210425_B4\@1" ).
+
+-   Check the box for 'Create on-the-fly raster instead of writing layer to disk'.
+
+-   For 'Output CRS', select 'EPSG:3414' from the drop-down list.
+
+![](images/paste-9193AE7B.png)\
+
+From the 'Layers' panel, click the 'Open the Layer Styling panel' button. The 'Layer Styling' panel will appear.
+
+-   For ​​'Symbol selection', select 'Singleband pseudocolor' from the drop-down list
+
+-   For 'Color ramp', select 'Greens' from the drop-down list.
+
+Click 'Apply'.
+
+\
+
+![](images/paste-02D0A094.png)\
+
+Save the raster layer as 'S2_NDVI_2022' in GeoTIFF format with CRS EPSG:3414.
+
+\
+
+To create the False Colour Composite and True Colour Composite layers, from the menu bar, select 'Raster' → 'Miscellaneous' → 'Build Virtual Raster...'.
+
+\
+
+![](images/paste-6AC35391.png)\
+
+The 'Build Virtual Raster' window will appear.
+
+-   For 'Input layers', select all the band layers.
+
+-   Check the box next to 'Place each input file into a separate band'
+
+Click 'Run'.
+
+\
+
+![](images/paste-24556D33.png)\
+
+From the 'Layers' panel, click the 'Open the Layer Styling panel' button. The 'Layer Styling' panel will appear.
+
+\
+
+For the True Colour Composite,
+
+-   For 'Red band', select 'Band 3' from the drop-down list.
+
+-   For 'Green band', select 'Band 2' from the drop-down list.
+
+-   For 'Blue band', select 'Band 1' from the drop-down list.
+
+![](images/paste-CE130553.png)\
+
+For the False Colour Composite,
+
+-   For 'Red band', select 'Band 4' from the drop-down list.
+
+-   For 'Green band', select 'Band 3' from the drop-down list.
+
+-   For 'Blue band', select 'Band 2' from the drop-down list.
+
+\
+
+![](images/paste-A882CAB4.png)\
+
+Click 'Apply'. Save the raster layers as 'S2_TCC_2022' and 'S2_FCC_2022 respectively in GeoTIFF format with CRS EPSG:3414.
+
+\
+
+### (B) Classification using Dzetsaka plugin
+
+To create the classification training samples, from the menu bar, select 'Layer' → 'Create Layer' → 'New Shapefile Layer...'.
+
+![](images/paste-11DCDB6A.png)\
+
+The 'New Shapefile Layer' window will appear. 
+
+-   For 'File name', click the '\...' button to create a 'S2_YT_train_2022' file.
+
+-   For 'Geometry type', select 'Polygon' from the drop-down list.
+
+-   For 'Additional dimensions', select 'EPSG:3414'.
+
+-   Create new fields 'class' \| Integer \| 10 and 'className' \| String \| 100.
+
+-   Remove the 'id' field.
+
+Click 'OK'.
+
+![](images/paste-AB5CE6ED.png)\
+
+From the toolbar, click the 'Toggle Editing' button, then click the 'Add Polygon Feature' button.
+
+![](images/paste-25041793.png)\
+
+Left-click a sample site to define the ROI vertices and right-click to define the last vertex to close the polygon. Make samples according to the following classes:
+
+| class | className           |
+|-------|---------------------|
+| 10    | Water               |
+| 20    | Vegetation          |
+| 30    | Built-up            |
+| 40    | Bare land           |
+| 50    | Impervious surfaces |
+
+\
+
+![](images/paste-4B22D5F4.png)\
+
+Repeat this process to create the classification test samples using different sample sites. Name the file 'S2_YT_test_2022'.
+
+![](images/paste-6A655DF0.png)\
+
+Install the Dzetsaka plugin. From the menu bar, select 'Plugins' → 'dzetsaka' → 'classification dock'.
+
+![](images/paste-E15BE6E5.png)\
+
+The Dzetsaka classification dock will appear.
+
+-   For 'The image to classify', select 'S2_FCC_2022' from the drop-down list.
+
+-   For 'Your ROI', select 'S2_YT_train_2022' from the drop-down list.
+
+-   For 'Column name where class number is stored', select 'class' from the drop-down list.
+
+-   Click the gear icon to open the settings panel. For 'Classifier', select 'Random Forest' from the drop-down list.
+
+Click 'Perform the classification'. Save the output layer as 'S2_RF_2022' in GeoTIFF format with CRS EPSG:3414.
+
+![](images/paste-FD664EA8.png)\
+
+From the 'Layers' panel, click the 'Open the Layer Styling panel' button. The 'Layer Styling' panel will appear. 
+
+-   For ​​'Symbol selection', select 'Paletted/Unique values' from the drop-down list.
+
+-   For 'Color ramp', select 'Random colors'.
+
+Click 'Classify'. 
+
+-   Double-click the 'Label' field for each value and rename them according to the respective class names.
+
+Click 'Apply'.
+
+![](images/paste-F290FCFE.png)\
+
+### (C) Accuracy Calculation using SCP Postprocessing
+
+-   Go to SCP → Postprocessing → Accuracy
+
+-   Semi-Automatic Classification Plugin window should open up.
+
+    -   Under 'Select the classification to assess', select 'S2_RF_2022'.
+
+    -   Under 'Select the reference vector or raster', select 'S2_YT_test_2022'.
+
+    -   If layers do not show, click on the ![](https://lh3.googleusercontent.com/JiQDO5oJYMWyI8bdqkiOq12zfcLcNP5ykxkYUkpJeiyq8TscrOIUsQuB-JcZ4_hA6sMAoAstB6NwDnf2KkM9nFFe7pYVVj2q8yNpHQzudB4PTPcvTMuDD2wPZBfznWJmsF8TUSmhQTN62sF11lnFcvGdV-sAlEfEk_1usx-lVj3KSW4R0l7jKRN2rMpUZg) button to refresh the layers, and reselect.
+
+    -   Window should look like this.
+
+        ![](images/paste-CA97EDB6.png)
+
+-   Click on 'Run'.
+
+-   Local file window named 'Save error matrix raster output' should open up.
+
+-   Under 'File name', type in '22_YT_ML'.
+
+-   Click 'Save' to save the output layer as file name.
+
+![](images/paste-253BE8FA.png)
+
+-   Once saving is done, output window should look like this.
+
+![](images/paste-885873EF.png)
+
+Scroll down to view the full results.
+
+Take note of the Overall Accuracy \[%\] and Kappa hat classification values, as well as the PA \[%\] (Producer's Accuracy) and Kappa hat of each class.
+
+![](images/paste-350236D0.png)\
+
+Furthermore, layer window should have an additional layer '22_YT_ML'.
+
+![](images/paste-473F0D84.png){fig-align="center"}
+
+Layer should look like this.
+
+![](images/paste-7229D4BD.png)\
+
+### (D) Obtaining Classification Report
+
+-   Go to SCP → Postprocessing → Classification Report
+
+-   In the SCP window, under 'Select the classification', select 'S2_RF_2022'.
+
+-   Window should look like this.
+
+![](images/paste-CF483671.png)
+
+-   Click 'Run'.
+
+-   Save Classification report CSV file name as '22_classification'.
+
+![](images/paste-A162DD57.png)
+
+-   Click 'Save'.
+
+-   Output window should look similar to this.
+
+-   Notice that the output shows each class' total area as well as % area in the classified raster that you selected.
+
+![](images/paste-0F63F421.png)
+
+-   Opening up the local directory where you saved the '22_classification' CSV file, it should look similar to this.
+
+![](images/paste-66B8A866.png)

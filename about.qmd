@@ -1,9 +1,17 @@
 ---
-title: "About"
+title: "About The Team"
 ---
 
-About this site
+In this website, we discuss about our work done and insights gained for the project. Access our GitHub Repository here: [*GitHub*](https://github.com/BryanTJJ99/Land-cover-change-detection-multispectral-satellite-data)*.*
 
-```{r}
-1 + 1
-```
+Here are some information about us.
+
+![](images/image-removebg-preview%20(8).png)
+
+**Reach out to us at:**
+
+-   Megan - <https://www.linkedin.com/in/lam-megan>
+
+-   Kyla - <https://www.linkedin.com/in/kyla-sim>
+
+-   Bryan - <https://www.linkedin.com/in/bryan-tan-jj>

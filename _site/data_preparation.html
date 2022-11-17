@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Urban Sensing With Satellites - Jurong Lake District - Data Preparation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Urban Sensing With Satellites - Jurong Lake District</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./data_preparation.html" aria-current="page">Data Preparation</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./analysis.html">Analysis</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./poster.html">Poster</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./documentation.html">Documentation</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">About The Team</a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-tldr" id="toc-the-tldr" class="nav-link active" data-scroll-target="#the-tldr">The TL;DR</a>
+  <ul class="collapse">
+  <li><a href="#our-process-flow-in-a-diagram" id="toc-our-process-flow-in-a-diagram" class="nav-link" data-scroll-target="#our-process-flow-in-a-diagram">Our Process Flow in a diagram:</a></li>
+  <li><a href="#glossary-of-tools-utilized" id="toc-glossary-of-tools-utilized" class="nav-link" data-scroll-target="#glossary-of-tools-utilized">Glossary of tools utilized</a></li>
+  <li><a href="#glossary-of-datasets-obtained" id="toc-glossary-of-datasets-obtained" class="nav-link" data-scroll-target="#glossary-of-datasets-obtained">Glossary of Datasets obtained</a></li>
+  </ul></li>
+  <li><a href="#comprehensive-guide-for-replication" id="toc-comprehensive-guide-for-replication" class="nav-link" data-scroll-target="#comprehensive-guide-for-replication">Comprehensive Guide for Replication</a>
+  <ul class="collapse">
+  <li><a href="#data-extraction-preprocessing" id="toc-data-extraction-preprocessing" class="nav-link" data-scroll-target="#data-extraction-preprocessing">Data Extraction &amp; Preprocessing</a></li>
+  <li><a href="#processing-remote-sensing-images-classification-and-deriving-insights" id="toc-processing-remote-sensing-images-classification-and-deriving-insights" class="nav-link" data-scroll-target="#processing-remote-sensing-images-classification-and-deriving-insights">Processing Remote Sensing Images, Classification and Deriving Insights</a>
+  <ul class="collapse">
+  <li><a href="#a-creating-remote-sensing-images" id="toc-a-creating-remote-sensing-images" class="nav-link" data-scroll-target="#a-creating-remote-sensing-images">(A) Creating Remote Sensing Images</a></li>
+  <li><a href="#b-classification-using-dzetsaka-plugin" id="toc-b-classification-using-dzetsaka-plugin" class="nav-link" data-scroll-target="#b-classification-using-dzetsaka-plugin">(B) Classification using Dzetsaka plugin</a></li>
+  <li><a href="#c-accuracy-calculation-using-scp-postprocessing" id="toc-c-accuracy-calculation-using-scp-postprocessing" class="nav-link" data-scroll-target="#c-accuracy-calculation-using-scp-postprocessing">(C) Accuracy Calculation using SCP Postprocessing</a></li>
+  <li><a href="#d-obtaining-classification-report" id="toc-d-obtaining-classification-report" class="nav-link" data-scroll-target="#d-obtaining-classification-report">(D) Obtaining Classification Report</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Data Preparation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="the-tldr" class="level1">
+<h1>The TL;DR</h1>
+<section id="our-process-flow-in-a-diagram" class="level2">
+<h2 class="anchored" data-anchor-id="our-process-flow-in-a-diagram">Our Process Flow in a diagram:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-3F9CBA29.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Note: under point 7, ‘satisfactory results’ refer to hitting minimally a score of ~70% for our Producer Accuracy for each class</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="glossary-of-tools-utilized" class="level2">
+<h2 class="anchored" data-anchor-id="glossary-of-tools-utilized">Glossary of tools utilized</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Tools</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Dzetsaka Plugin</p>
+<p>(Fun Fact - Dzetsaka is a word representing the objects we use to see the world through, such as satellites, microscope, cameras)</p>
+<p><a href="https://github.com/nkarasiak/dzetsaka">View Documentation Here</a></p></td>
+<td><p>Classification of raster layer using Random Forest Algorithm.</p>
+<p>Motivation behind choosing Dzetsaka Plugin over SCP for classification:</p>
+<ul>
+<li><p>More options in using different algorithms to classify and test its accuracy (SVM, Random Forest, KNN, Gaussian Mixture Model)</p></li>
+<li><p>Fast and easy to use, but yet comparable results to SCP</p></li>
+<li><p>Wanted to explore other plugins apart from SCP, which was taught in class</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Semi-Automatic Classification Plugin</td>
+<td><ul>
+<li><p>Obtain False Colour Composite, Normalized Difference Vegetation Index (NDVI) of raster maps</p></li>
+<li><p>Obtain classification accuracy report</p></li>
+<li><p>Obtain classification report of areas by class</p></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="glossary-of-datasets-obtained" class="level2">
+<h2 class="anchored" data-anchor-id="glossary-of-datasets-obtained">Glossary of Datasets obtained</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Description and Link</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Sentinel-2 Data of Singapore from 2018-2022</strong></td>
+<td><p><strong>Link:</strong></p>
+<p><a href="https://scihub.copernicus.eu/dhus/#/home">Copernicus Open Access Hub</a></p>
+<p><strong>Dates Extracted:</strong></p>
+<p>2018 - Feb 10</p>
+<p>2019 - Feb 25</p>
+<p>2020 - Jan 26</p>
+<p>2021 - Apr 25</p>
+<p>2022 - Jan 30</p>
+<p><strong>Approach:</strong></p>
+<p>To extract data with as little cloud cover as possible, in the search bar, filter the cloud cover percentage to 20%.</p>
+<p><img src="images/paste-402AC734.png" class="img-fluid"></p></td>
+</tr>
+<tr class="even">
+<td><strong>Master Plan 2019 Subzone Boundary (No Sea)</strong></td>
+<td><a href="https://data.gov.sg/dataset/master-plan-2019-subzone-boundary-no-sea">data.gov.sg</a></td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<p><br>
+</p>
+</section>
+</section>
+<section id="comprehensive-guide-for-replication" class="level1">
+<h1>Comprehensive Guide for Replication</h1>
+<section id="data-extraction-preprocessing" class="level2">
+<h2 class="anchored" data-anchor-id="data-extraction-preprocessing">Data Extraction &amp; Preprocessing</h2>
+<p>To add the ​​Sentinel-2 files to QGIS, from the menu bar, select ‘Layer’ → ‘Add Layer’ → ‘Add Raster Layer…’.&nbsp;</p>
+<p><br>
+<img src="_site/images/paste-1DBC856D.png" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The Data Source Manager window will appear. Click the ‘…’ button and browse for bands 2, 3, 4 and 8. Click ‘Open’, then click ‘Add’ and ‘Close’</p>
+<p><img src="images/paste-98AF68E8.png" class="img-fluid">&nbsp;</p>
+<p>To extract the Jurong Lake District area, open the Master Plan 2019 Subzone Boundary (No Sea) file as a new layer. Open the layer’s attribute table and click the ‘Select features using an expression’ button. The ‘Select by Expression’ window will appear. In the ‘Expression’ panel, enter “SUBZONE_N” = ‘JURONG GATEWAY’ OR “SUBZONE_N” = ‘LAKESIDE (BUSINESS)’ OR “SUBZONE_N” = ‘LAKESIDE (LEISURE)’. Click ‘Select Features’, then click ‘Close’.</p>
+<p><img src="images/paste-9B8F4BD5.png" class="img-fluid"><br>
+</p>
+<p>The Jurong Lake District area will be highlighted in yellow. To save the area, right-click the layer and select ‘Export’ → ‘Save Selected Features As…’ from the context menu.</p>
+<p><img src="images/paste-FE8C702C.png" class="img-fluid"></p>
+<p><br>
+</p>
+<p>The ‘Save Vector Layer as…’ window will appear.</p>
+<ul>
+<li><p>For ‘Format’, select ‘GeoPackage’ from the drop-down list.</p></li>
+<li><p>For ‘File name’, click the ‘...’ button to create a ‘JLD’ GeoPackage in the ‘GeoPackage’ folder.</p></li>
+<li><p>For ‘Layer name’, enter ‘Jurong Lake District’.</p></li>
+<li><p>For ‘CRS’, select ‘EPSG:3414 - SVY21 / Singapore TM’ from the drop-down list.</p></li>
+</ul>
+<p>Click ‘OK’. A ‘Jurong Lake District’ layer will appear.</p>
+<p><img src="images/paste-76FB9AFF.png" class="img-fluid"><br>
+</p>
+<p>Remove the Master Plan 2019 Subzone Boundary (No Sea) layer. To extract Sentinel-2 data within the Jurong Lake District area, from the menu bar, select ‘Raster’ → ‘Extraction’ → ‘Clip Raster by Extent…’.</p>
+<p><img src="images/paste-F006445F.png" class="img-fluid"><br>
+</p>
+<p>The ‘Clip Raster by Extent’ window will appear. Click ‘Run as Batch Process…’.</p>
+<ul>
+<li>For ‘Input layer’, select ‘Autofill…’ → ‘Select from Open Layers’ from the context menu. Select all the Sentinel-2 band layers and click ‘OK’.</li>
+</ul>
+<p><img src="images/paste-7B9A9322.png" class="img-fluid"><br>
+</p>
+<ul>
+<li>For ‘Clipping Extent, click the drop-down arrow for the first band and select ’Calculate from Layer’ → ‘Jurong Lake District’ from the context menu. Then, select ‘Autofill…’ → ‘Fill Down’.</li>
+</ul>
+<p><img src="images/paste-8E18F015.png" class="img-fluid"><br>
+</p>
+<ul>
+<li><p>For ‘Clipped (extent)’, click the ‘...’ button to save the clipped layers as ‘JLD_’.&nbsp;</p></li>
+<li><p>In the ‘Autofill settings’ window,&nbsp;</p>
+<ul>
+<li><p>For ‘Autofill mode’, select ‘Fill with parameter values’ from the drop-down list.</p></li>
+<li><p>For ‘Parameter to use’, select ‘Input layer’ from the drop-down list.</p></li>
+<li><p>Click ‘OK’.</p></li>
+</ul></li>
+</ul>
+<p><img src="images/paste-527888B3.png" class="img-fluid"><br>
+</p>
+<ul>
+<li>Check the box for ‘Load layers on completion’.</li>
+</ul>
+<p><br>
+<img src="images/paste-ED7F5146.png" class="img-fluid"></p>
+<p>Click ‘Run’. The clipped band layers will appear. Remove the unclipped band layers.</p>
+<p><img src="images/paste-08711D7E.png" class="img-fluid"></p>
+</section>
+<section id="processing-remote-sensing-images-classification-and-deriving-insights" class="level2">
+<h2 class="anchored" data-anchor-id="processing-remote-sensing-images-classification-and-deriving-insights">Processing Remote Sensing Images, Classification and Deriving Insights</h2>
+<section id="a-creating-remote-sensing-images" class="level3">
+<h3 class="anchored" data-anchor-id="a-creating-remote-sensing-images">(A) Creating Remote Sensing Images</h3>
+<p>To create the NDVI layer, from the menu bar, select ‘Raster’ → ‘Raster Calculator’.<br>
+</p>
+<p><img src="images/paste-73DB0869.png" class="img-fluid"><br>
+</p>
+<p>The ‘Raster Calculator’ window will appear.</p>
+<ul>
+<li><p>For ‘Raster Calculator Expression’, enter ( “JLD_T48NUG_20210425_B8@1” - “JLD_T48NUG_20210425_B4@1” )&nbsp; /&nbsp; ( “JLD_T48NUG_20210425_B8@1” + “JLD_T48NUG_20210425_B4@1” ).</p></li>
+<li><p>Check the box for ‘Create on-the-fly raster instead of writing layer to disk’.</p></li>
+<li><p>For ‘Output CRS’, select ‘EPSG:3414’ from the drop-down list.</p></li>
+</ul>
+<p><img src="images/paste-9193AE7B.png" class="img-fluid"><br>
+</p>
+<p>From the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear.</p>
+<ul>
+<li><p>For ​​‘Symbol selection’, select ‘Singleband pseudocolor’ from the drop-down list</p></li>
+<li><p>For ‘Color ramp’, select ‘Greens’ from the drop-down list.</p></li>
+</ul>
+<p>Click ‘Apply’.</p>
+<p><br>
+</p>
+<p><img src="images/paste-02D0A094.png" class="img-fluid"><br>
+</p>
+<p>Save the raster layer as ‘S2_NDVI_2022’ in GeoTIFF format with CRS EPSG:3414.</p>
+<p><br>
+</p>
+<p>To create the False Colour Composite and True Colour Composite layers, from the menu bar, select ‘Raster’ → ‘Miscellaneous’ → ‘Build Virtual Raster…’.</p>
+<p><br>
+</p>
+<p><img src="images/paste-6AC35391.png" class="img-fluid"><br>
+</p>
+<p>The ‘Build Virtual Raster’ window will appear.</p>
+<ul>
+<li><p>For ‘Input layers’, select all the band layers.</p></li>
+<li><p>Check the box next to ‘Place each input file into a separate band’</p></li>
+</ul>
+<p>Click ‘Run’.</p>
+<p><br>
+</p>
+<p><img src="images/paste-24556D33.png" class="img-fluid"><br>
+</p>
+<p>From the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear.</p>
+<p><br>
+</p>
+<p>For the True Colour Composite,</p>
+<ul>
+<li><p>For ‘Red band’, select ‘Band 3’ from the drop-down list.</p></li>
+<li><p>For ‘Green band’, select ‘Band 2’ from the drop-down list.</p></li>
+<li><p>For ‘Blue band’, select ‘Band 1’ from the drop-down list.</p></li>
+</ul>
+<p><img src="images/paste-CE130553.png" class="img-fluid"><br>
+</p>
+<p>For the False Colour Composite,</p>
+<ul>
+<li><p>For ‘Red band’, select ‘Band 4’ from the drop-down list.</p></li>
+<li><p>For ‘Green band’, select ‘Band 3’ from the drop-down list.</p></li>
+<li><p>For ‘Blue band’, select ‘Band 2’ from the drop-down list.</p></li>
+</ul>
+<p><br>
+</p>
+<p><img src="images/paste-A882CAB4.png" class="img-fluid"><br>
+</p>
+<p>Click ‘Apply’. Save the raster layers as ‘S2_TCC_2022’ and ’S2_FCC_2022 respectively in GeoTIFF format with CRS EPSG:3414.</p>
+<p><br>
+</p>
+</section>
+<section id="b-classification-using-dzetsaka-plugin" class="level3">
+<h3 class="anchored" data-anchor-id="b-classification-using-dzetsaka-plugin">(B) Classification using Dzetsaka plugin</h3>
+<p>To create the classification training samples, from the menu bar, select ‘Layer’ → ‘Create Layer’ → ‘New Shapefile Layer…’.</p>
+<p><img src="images/paste-11DCDB6A.png" class="img-fluid"><br>
+</p>
+<p>The ‘New Shapefile Layer’ window will appear.&nbsp;</p>
+<ul>
+<li><p>For ‘File name’, click the ‘...’ button to create a ‘S2_YT_train_2022’ file.</p></li>
+<li><p>For ‘Geometry type’, select ‘Polygon’ from the drop-down list.</p></li>
+<li><p>For ‘Additional dimensions’, select ‘EPSG:3414’.</p></li>
+<li><p>Create new fields ‘class’ | Integer | 10 and ‘className’ | String | 100.</p></li>
+<li><p>Remove the ‘id’ field.</p></li>
+</ul>
+<p>Click ‘OK’.</p>
+<p><img src="images/paste-AB5CE6ED.png" class="img-fluid"><br>
+</p>
+<p>From the toolbar, click the ‘Toggle Editing’ button, then click the ‘Add Polygon Feature’ button.</p>
+<p><img src="images/paste-25041793.png" class="img-fluid"><br>
+</p>
+<p>Left-click a sample site to define the ROI vertices and right-click to define the last vertex to close the polygon. Make samples according to the following classes:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>class</th>
+<th>className</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>Water</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>Vegetation</td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>Built-up</td>
+</tr>
+<tr class="even">
+<td>40</td>
+<td>Bare land</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>Impervious surfaces</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+</p>
+<p><img src="images/paste-4B22D5F4.png" class="img-fluid"><br>
+</p>
+<p>Repeat this process to create the classification test samples using different sample sites. Name the file ‘S2_YT_test_2022’.</p>
+<p><img src="images/paste-6A655DF0.png" class="img-fluid"><br>
+</p>
+<p>Install the Dzetsaka plugin. From the menu bar, select ‘Plugins’ → ‘dzetsaka’ → ‘classification dock’.</p>
+<p><img src="images/paste-E15BE6E5.png" class="img-fluid"><br>
+</p>
+<p>The Dzetsaka classification dock will appear.</p>
+<ul>
+<li><p>For ‘The image to classify’, select ‘S2_FCC_2022’ from the drop-down list.</p></li>
+<li><p>For ‘Your ROI’, select ‘S2_YT_train_2022’ from the drop-down list.</p></li>
+<li><p>For ‘Column name where class number is stored’, select ‘class’ from the drop-down list.</p></li>
+<li><p>Click the gear icon to open the settings panel. For ‘Classifier’, select ‘Random Forest’ from the drop-down list.</p></li>
+</ul>
+<p>Click ‘Perform the classification’. Save the output layer as ‘S2_RF_2022’ in GeoTIFF format with CRS EPSG:3414.</p>
+<p><img src="images/paste-FD664EA8.png" class="img-fluid"><br>
+</p>
+<p>From the ‘Layers’ panel, click the ‘Open the Layer Styling panel’ button. The ‘Layer Styling’ panel will appear.&nbsp;</p>
+<ul>
+<li><p>For ​​‘Symbol selection’, select ‘Paletted/Unique values’ from the drop-down list.</p></li>
+<li><p>For ‘Color ramp’, select ‘Random colors’.</p></li>
+</ul>
+<p>Click ‘Classify’.&nbsp;</p>
+<ul>
+<li>Double-click the ‘Label’ field for each value and rename them according to the respective class names.</li>
+</ul>
+<p>Click ‘Apply’.</p>
+<p><img src="images/paste-F290FCFE.png" class="img-fluid"><br>
+</p>
+</section>
+<section id="c-accuracy-calculation-using-scp-postprocessing" class="level3">
+<h3 class="anchored" data-anchor-id="c-accuracy-calculation-using-scp-postprocessing">(C) Accuracy Calculation using SCP Postprocessing</h3>
+<ul>
+<li><p>Go to SCP → Postprocessing → Accuracy</p></li>
+<li><p>Semi-Automatic Classification Plugin window should open up.</p>
+<ul>
+<li><p>Under ‘Select the classification to assess’, select ‘S2_RF_2022’.</p></li>
+<li><p>Under ‘Select the reference vector or raster’, select ‘S2_YT_test_2022’.</p></li>
+<li><p>If layers do not show, click on the <img src="https://lh3.googleusercontent.com/JiQDO5oJYMWyI8bdqkiOq12zfcLcNP5ykxkYUkpJeiyq8TscrOIUsQuB-JcZ4_hA6sMAoAstB6NwDnf2KkM9nFFe7pYVVj2q8yNpHQzudB4PTPcvTMuDD2wPZBfznWJmsF8TUSmhQTN62sF11lnFcvGdV-sAlEfEk_1usx-lVj3KSW4R0l7jKRN2rMpUZg.png" class="img-fluid"> button to refresh the layers, and reselect.</p></li>
+<li><p>Window should look like this.</p>
+<p><img src="images/paste-CA97EDB6.png" class="img-fluid"></p></li>
+</ul></li>
+<li><p>Click on ‘Run’.</p></li>
+<li><p>Local file window named ‘Save error matrix raster output’ should open up.</p></li>
+<li><p>Under ‘File name’, type in ‘22_YT_ML’.</p></li>
+<li><p>Click ‘Save’ to save the output layer as file name.</p></li>
+</ul>
+<p><img src="images/paste-253BE8FA.png" class="img-fluid"></p>
+<ul>
+<li>Once saving is done, output window should look like this.</li>
+</ul>
+<p><img src="images/paste-885873EF.png" class="img-fluid"></p>
+<p>Scroll down to view the full results.</p>
+<p>Take note of the Overall Accuracy [%] and Kappa hat classification values, as well as the PA [%] (Producer’s Accuracy) and Kappa hat of each class.</p>
+<p><img src="images/paste-350236D0.png" class="img-fluid"><br>
+</p>
+<p>Furthermore, layer window should have an additional layer ‘22_YT_ML’.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-473F0D84.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Layer should look like this.</p>
+<p><img src="images/paste-7229D4BD.png" class="img-fluid"><br>
+</p>
+</section>
+<section id="d-obtaining-classification-report" class="level3">
+<h3 class="anchored" data-anchor-id="d-obtaining-classification-report">(D) Obtaining Classification Report</h3>
+<ul>
+<li><p>Go to SCP → Postprocessing → Classification Report</p></li>
+<li><p>In the SCP window, under ‘Select the classification’, select ‘S2_RF_2022’.</p></li>
+<li><p>Window should look like this.</p></li>
+</ul>
+<p><img src="images/paste-CF483671.png" class="img-fluid"></p>
+<ul>
+<li><p>Click ‘Run’.</p></li>
+<li><p>Save Classification report CSV file name as ‘22_classification’.</p></li>
+</ul>
+<p><img src="images/paste-A162DD57.png" class="img-fluid"></p>
+<ul>
+<li><p>Click ‘Save’.</p></li>
+<li><p>Output window should look similar to this.</p></li>
+<li><p>Notice that the output shows each class’ total area as well as % area in the classified raster that you selected.</p></li>
+</ul>
+<p><img src="images/paste-0F63F421.png" class="img-fluid"></p>
+<ul>
+<li>Opening up the local directory where you saved the ‘22_classification’ CSV file, it should look similar to this.</li>
+</ul>
+<p><img src="images/paste-66B8A866.png" class="img-fluid"></p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

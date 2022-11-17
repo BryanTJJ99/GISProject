@@ -2,27 +2,30 @@ project:
   type: website
 
 website:
-  title: "GISProject"
+  title: "Urban Sensing With Satellites - Jurong Lake District"
   navbar:
-    left: 
-      - href: intro.html
-        text: Introduction
-      - href: methodology.html
-        text: Methodology
-      - href: analysis.html
-        text: Analysis
-      - href: finding.html
-        text: Results & Discussion
-        
+    
+    background: "#557153"
 
     right:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: data_preparation.html
+        text: Data Preparation
+      - href: analysis.html
+        text: Analysis
+      - href: poster.html
+        text: Poster
+      - href: documentation.html
+        text: Documentation
+      - href: about.html
+        text: About The Team
 
 format:
   html:
-    theme: cosmo
+    theme:
+      dark: darkly
+      light: flatly
     css: styles.css
     toc: true
 
