@@ -13,7 +13,7 @@ The development of Jurong Lake District (JLD) is a stark contrast against Singap
 
 Therefore, the objectives of our project are as follows:
 
-1.  To detect land cover change (how much forested land has been lost to urban land) use from 2018-2022 in JLD using Sentinel-2 data.
+1.  To detect land cover change (how much vegetation has been lost to development) from 2018-2022 in JLD using Sentinel-2 data.
 
 2.  To recommend suitable strategies to reduce forested land loss in JLD based on insights from our analysis.
 

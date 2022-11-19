@@ -9,21 +9,35 @@ editor: visual
 
 # Division of Labour
 
++--------------------------------------------------------------------------+----------------------+
 | **Task**                                                                 | **Person-In-Charge** |
-|--------------------------------------------------------------------------|----------------------|
++==========================================================================+======================+
 | Facilitating and outlining project scope and methodology, to do tasks    | Bryan                |
++--------------------------------------------------------------------------+----------------------+
 | Research Classification Plugin to utilize - Dzetsaka                     | Bryan                |
++--------------------------------------------------------------------------+----------------------+
 | Extracting and cleaning data                                             | Megan, Kyla, Bryan   |
++--------------------------------------------------------------------------+----------------------+
 | Creating remote sensing images                                           | Megan, Kyla, Bryan   |
++--------------------------------------------------------------------------+----------------------+
 | Performing classification on data                                        | Megan, Kyla          |
++--------------------------------------------------------------------------+----------------------+
 | Obtaining accuracy and classification report                             | Kyla                 |
++--------------------------------------------------------------------------+----------------------+
 | Research and interpretation of classification's statistical significance | Bryan                |
++--------------------------------------------------------------------------+----------------------+
 | Designing the project poster                                             | Megan, Kyla, Bryan   |
++--------------------------------------------------------------------------+----------------------+
 | Writing the project objective and introduction                           | Megan, Kyla          |
++--------------------------------------------------------------------------+----------------------+
 | Writing the project methodology (step-by-step)                           | Megan, Kyla          |
++--------------------------------------------------------------------------+----------------------+
 | Writing Project Analysis and Recommendations                             | Bryan                |
++--------------------------------------------------------------------------+----------------------+
 | Project webpage Compilation and Design                                   | Bryan                |
++--------------------------------------------------------------------------+----------------------+
 | Compiling the project artefact                                           | Megan                |
++--------------------------------------------------------------------------+----------------------+
 
 # Meeting Minutes
 
@@ -132,6 +146,8 @@ editor: visual
 -   [Satellite Imagery and GIS Maps for Land Cover and Change Detection](https://www.satimagingcorp.com/applications/environmental-impact-studies/land-cover-and-change-detection/)
 
 -   [Monitoring and predicting land use and land cover changes using remote sensing and GIS techniques---A case study of a hilly area, Jiangle, China](https://journals.plos.org/plosone/article/figure?id=10.1371/journal.pone.0200493.g007)
+
+-   [Image classification - Random Forest](https://pages.cms.hu-berlin.de/EOL/geo_rs/S09_Image_classification2.html#:~:text=Background-,Random%20Forest%20Classifier,(i.e.%20%E2%80%9CForest%E2%80%9D))
 
 ## Resources on Singapore's vegetation
 

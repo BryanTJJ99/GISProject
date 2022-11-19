@@ -367,3 +367,33 @@ Layer should look like this.
 -   Opening up the local directory where you saved the '22_classification' CSV file, it should look similar to this.
 
 ![](images/paste-66B8A866.png)
+
+### (E) Obtaining Land-to-Land cover change
+
+Finally, we attempt to obtain raster images to detect land-to-land cover change between 2018 and 2022.
+
+-   Go to SCP plugin --\> Postprocessing --\> Land cover change
+
+![](images/paste-4582DC18.png){fig-align="center" width="416"}
+
+-   Select input classification fields as below and run:
+
+    ![](images/paste-A9C31997.png){width="523"}
+
+-   You will obtain a raster layer and an output report that looks like the following below:
+
+    ![](images/paste-297808D1.png){width="411"}
+
+-   The legend of the raster layer will look something like this:
+
+    ![](images/paste-0319454E.png){width="133"}
+
+-   Duplicate this raster layer and rename the 2 layers as 'Vegetation-to-Other Classes' and 'Other Classes-to-Vegetation' respectively. Using the output report as reference, reclassify the raster layer in 'Symbology' tab. For example, under the 'Vegetation-to-Other Classes' raster, we will only colourize the labels distinctly that have land cover changes from vegetation to other classes, leaving the rest a black.
+
+    ![](images/paste-890F0939.png){width="482"}
+
+-   In the end, you should be able to obtain 2 different raster maps that look like this
+
+![](images/paste-E0B367B9.png)
+
+![](images/paste-56B244B5.png)
