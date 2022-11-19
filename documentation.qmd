@@ -7,127 +7,65 @@ editor: visual
 
 ![](images/paste-C4249A73.png)
 
-# Division of Labour
+# Division of Labour (excluding work not part of final submission)
 
-+--------------------------------------------------------------------------+----------------------+
-| **Task**                                                                 | **Person-In-Charge** |
-+==========================================================================+======================+
-| Facilitating and outlining project scope and methodology, to do tasks    | Bryan                |
-+--------------------------------------------------------------------------+----------------------+
-| Research Classification Plugin to utilize - Dzetsaka                     | Bryan                |
-+--------------------------------------------------------------------------+----------------------+
-| Extracting and cleaning data                                             | Megan, Kyla, Bryan   |
-+--------------------------------------------------------------------------+----------------------+
-| Creating remote sensing images                                           | Megan, Kyla, Bryan   |
-+--------------------------------------------------------------------------+----------------------+
-| Performing classification on data                                        | Megan, Kyla          |
-+--------------------------------------------------------------------------+----------------------+
-| Obtaining accuracy and classification report                             | Kyla                 |
-+--------------------------------------------------------------------------+----------------------+
-| Research and interpretation of classification's statistical significance | Bryan                |
-+--------------------------------------------------------------------------+----------------------+
-| Designing the project poster                                             | Megan, Kyla, Bryan   |
-+--------------------------------------------------------------------------+----------------------+
-| Writing the project objective and introduction                           | Megan, Kyla          |
-+--------------------------------------------------------------------------+----------------------+
-| Writing the project methodology (step-by-step)                           | Megan, Kyla          |
-+--------------------------------------------------------------------------+----------------------+
-| Writing Project Analysis and Recommendations                             | Bryan                |
-+--------------------------------------------------------------------------+----------------------+
-| Project webpage Compilation and Design                                   | Bryan                |
-+--------------------------------------------------------------------------+----------------------+
-| Compiling the project artefact                                           | Megan                |
-+--------------------------------------------------------------------------+----------------------+
+**Megan:**
+
+-   Extracted and cleaned Sentinel-2 data for years 2018-2021
+
+-   Created remote sensing images (FCC, TCC, NDVI) for years 2018-2021
+
+-   Created training and test samples for years 2018-2021
+
+-   Performed classification for years 2018-2021
+
+-   Designed the poster
+
+-   Wrote the project proposal (motivation, objective, scope, etc)
+
+-   Wrote the methodology for extracting data and performing classification
+
+-   Compiled the project artefact and analytical maps
+
+**Kyla:**
+
+-   Extracted and cleaned Sentinel-2 data for year 2022
+
+-   Created remote sensing images (FCC, TCC, NDVI) for year 2022
+
+-   Created training and test samples for year 2022
+
+-   Performed classification for year 2022
+
+-   Obtained accuracy and classification report for years 2018-2022
+
+-   Designed the poster
+
+-   Wrote the project proposal (motivation, objective, scope, etc)
+
+-   Wrote the methodology for obtaining accuracy and classification report
+
+**Bryan:**
+
+-   Researched classification plugin to use (Dzetsaka)
+
+-   Designed the poster
+
+-   Wrote project analysis and discussion
+
+-   Created class-to-class classification between 2018 and 2022, added step-by-step methodology for this portion
+
+-   Created and populated the project website, including documentation
 
 # Meeting Minutes
 
-+---------------+---------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Time**      | **Objective**                                                 | **Minutes**                                                                                                                                                                      |
-+===============+===============================================================+==================================================================================================================================================================================+
-| 10 Oct, 9pm   | Brainstorming Project Scope                                   | **Discussions / Disagreements:**                                                                                                                                                 |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 1.  Work delegation                                                                                                                                                              |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 2.  Whether we should do flood-risk related analysis or vegetation                                                                                                               |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 3.  Whether we should do individual work on call or separately                                                                                                                   |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | **Consensus & Next Steps:**                                                                                                                                                      |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 1.  To do list:                                                                                                                                                                  |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     1.  Data extraction for 2014, 2016, 2018, 2020, 2022                                                                                                                         |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |         1.  Kyla: 2014, 2016                                                                                                                                                     |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |         2.  Megan: 2018, 2020                                                                                                                                                    |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |         3.  Bryan: 2022                                                                                                                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     2.  Explore other classification techniques (supervised) - Bryan                                                                                                             |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     3.  Email Prof - Kyla                                                                                                                                                        |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |         1.  What methods will be taught for supervised classification → so we can explore novel methods for our project                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |         2.  How Prof chose the classes (9 in total)                                                                                                                              |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     4.  Carry on with report writing                                                                                                                                             |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 2.  We will do flood-risk analysis based on external research and similar studies in other countries                                                                             |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | 3.  We will do our delegated tasks on our own time and meet online to resolve any issues                                                                                         |
-+---------------+---------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 14 Oct, 10am  | Consultation with Prof on Project Topic                       | -   Project idea changed from flood risk to greenery loss in Singapore                                                                                                           |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | -   Recommended public journals to boost methods of analysis, on top of PCA and SCP                                                                                              |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | -   Had a clearer view of the structure of the project and how the work should be done                                                                                           |
-+---------------+---------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 7 Nov, 3.05am | Discuss feedback and finalise timeline and division of labour | **Division of labour:**                                                                                                                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | -   Bryan:                                                                                                                                                                       |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Facilitated team's to-do in alignment with our project - decided on Dzetsaka Plugin, change all satellite data type from LandSat 8 to Sentinel 2, and approach to obtain |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Website creation using Quarto & RStudio                                                                                                                                  |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Research and interpretation of classification's statistical significance - Producer Accuracy, Kappa Coefficient                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Designed the poster                                                                                                                                                      |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | -   Megan:                                                                                                                                                                       |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Extracted data for years 2018-2021                                                                                                                                       |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Created training and test samples for years 2018-2021                                                                                                                    |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Performed classification for years 2018-2021                                                                                                                             |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Designed the poster                                                                                                                                                      |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Compiled the project artefact and analytical maps                                                                                                                        |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Wrote the project proposal                                                                                                                                               |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Wrote the methodology for extracting data and performing classification                                                                                                  |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               | -   Kyla:                                                                                                                                                                        |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Extracted data for 2017 & 2022                                                                                                                                           |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Created training and test samples for year 2022                                                                                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Performed classification for year 2022                                                                                                                                   |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Obtained accuracy and classification report for years 2017-2022                                                                                                          |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Designed the poster                                                                                                                                                      |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Wrote the project proposal                                                                                                                                               |
-|               |                                                               |                                                                                                                                                                                  |
-|               |                                                               |     -   Wrote the methodology for obtaining accuracy and classification report\                                                                                                  |
-+---------------+---------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+![](images/paste-71962AE7.png)
+
+![](images/paste-60585413.png)
+
+![](images/paste-D48AC7E0.png)
+
+![](images/paste-846A6F72.png)
 
 # References
 
