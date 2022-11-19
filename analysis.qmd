@@ -79,8 +79,23 @@ From our statistical report in Figure 6, we have managed to achieve relatively h
 
 # Recommendations
 
-\<nuances of what a 'sustainable' 2nd cbd mean\>
+We acknowledge that using remote sensing to analyze the land cover change and specifically the loss of vegetation to other land uses for urban development is all but just one part of the assessment of what it means to be a 'sustainable hub'. There are embedded nuances in determining and assessing the environmental cost when in comes to development, including the materials used for buildings in that region, the technologies used in improving water and energy efficiency, and more.
 
-To achieve URA's vision for JLD as a sustainable urban hub, a balance must be struck between the preservation of existing greenery and the development of new built areas. This will minimise disruptions to the local biodiversity and reduce urban heat, all while acting as protection for the mental well-being of the local populace.
+Nonetheless, to achieve URA's vision for JLD as a sustainable urban hub, a balance should still be struck between the preservation of existing greenery and the development of new built areas. This will minimise disruptions to the local biodiversity and reduce urban heat, all while acting as protection for the mental well-being of the local populace.
 
-Incorporating nature creatively within JLD's mixed land use design could serve as a potential feasible solution towards reversing the loss of greenery. Taking inspiration from China's Liuzhou Forest City, some novel ideas include greening every roof within the district, and cladding trees and plants over building façades (e.g. balconies). Pushing feasible biophilic designs at the forefront of urban planning will certainly help to reduce the loss of nature at the expense of development.
+Incorporating nature creatively within JLD's mixed land use design could serve as a potential feasible solution towards reversing the loss of greenery. Taking inspiration from China's Liuzhou Forest City, some novel ideas include greening every roof within the district, and cladding trees and plants over building façades (e.g. balconies).
+
+Microforestry - also know as the [Miyawaki Method for Creating Forests](https://www.sugiproject.com/blog/the-miyawaki-method-for-creating-forests) - is another concept which several cities (including [The Netherlands](https://www.ivn.nl/tinyforest/tiny-forest-worldwide/countries/the-netherlands)) have adopted, which are forest the size of a tennis court that are being planted in every single neighborhood
+
+Fundamentally, pushing feasible biophilic designs at the forefront of urban planning will certainly help to reduce the loss of nature at the expense of development.
+
+# Potential Future Work
+
+#### Urban Heat Island Effect
+
+Urban heat island effect occurs when cities replace natural land cover with dense concentrations of pavement, buildings, and other surfaces that absorb and retain heat. which increases regional temperature and energy costs. There is a strong correlation between the loss of vegetation and the corresponding increase in urban heat temperature within the same area. In our future work, we can utilize the QGIS tools analyze the extent of land temperature change over 2018-2022 in relation to the increased loss in vegetation in JLD.
+
+#### 
+Macro-Analysis of Parks
+
+As our current scope only covers Jurong Lake District, we can expand our analysis to study land cover change in other key areas identified by the Singapore Green Plan 2030. Under the City in Nature initiative, the government aims to increase nature parks' land area by over 50% within 10 years. By incorporating the methods used in our study, we can supplement current knowledge by investigating trends in land cover change in newly planned nature park areas.
