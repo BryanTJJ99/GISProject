@@ -132,6 +132,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#b-classification-using-dzetsaka-plugin" id="toc-b-classification-using-dzetsaka-plugin" class="nav-link" data-scroll-target="#b-classification-using-dzetsaka-plugin">(B) Classification using Dzetsaka plugin</a></li>
   <li><a href="#c-accuracy-calculation-using-scp-postprocessing" id="toc-c-accuracy-calculation-using-scp-postprocessing" class="nav-link" data-scroll-target="#c-accuracy-calculation-using-scp-postprocessing">(C) Accuracy Calculation using SCP Postprocessing</a></li>
   <li><a href="#d-obtaining-classification-report" id="toc-d-obtaining-classification-report" class="nav-link" data-scroll-target="#d-obtaining-classification-report">(D) Obtaining Classification Report</a></li>
+  <li><a href="#e-obtaining-land-to-land-cover-change" id="toc-e-obtaining-land-to-land-cover-change" class="nav-link" data-scroll-target="#e-obtaining-land-to-land-cover-change">(E) Obtaining Land-to-Land cover change</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -510,6 +511,31 @@ ul.task-list li input[type="checkbox"] {
 <li>Opening up the local directory where you saved the ‘22_classification’ CSV file, it should look similar to this.</li>
 </ul>
 <p><img src="images/paste-66B8A866.png" class="img-fluid"></p>
+</section>
+<section id="e-obtaining-land-to-land-cover-change" class="level3">
+<h3 class="anchored" data-anchor-id="e-obtaining-land-to-land-cover-change">(E) Obtaining Land-to-Land cover change</h3>
+<p>Finally, we attempt to obtain raster images to detect land-to-land cover change between 2018 and 2022.</p>
+<ul>
+<li>Go to SCP plugin –&gt; Postprocessing –&gt; Land cover change</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-4582DC18.png" class="img-fluid figure-img" width="416"></p>
+</figure>
+</div>
+<ul>
+<li><p>Select input classification fields as below and run:</p>
+<p><img src="images/paste-A9C31997.png" class="img-fluid" width="523"></p></li>
+<li><p>You will obtain a raster layer and an output report that looks like the following below:</p>
+<p><img src="images/paste-297808D1.png" class="img-fluid" width="411"></p></li>
+<li><p>The legend of the raster layer will look something like this:</p>
+<p><img src="images/paste-0319454E.png" class="img-fluid" width="133"></p></li>
+<li><p>Duplicate this raster layer and rename the 2 layers as ‘Vegetation-to-Other Classes’ and ‘Other Classes-to-Vegetation’ respectively. Using the output report as reference, reclassify the raster layer in ‘Symbology’ tab. For example, under the ‘Vegetation-to-Other Classes’ raster, we will only colourise the labels distinctly that have land cover changes from vegetation to other classes, leaving the rest as black.</p>
+<p><img src="images/paste-890F0939.png" class="img-fluid" width="482"></p></li>
+<li><p>In the end, you should be able to obtain 2 different raster maps that look like this</p></li>
+</ul>
+<p><img src="images/paste-E0B367B9.png" class="img-fluid"></p>
+<p><img src="images/paste-56B244B5.png" class="img-fluid"></p>
 
 
 </section>
