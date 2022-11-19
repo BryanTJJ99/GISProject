@@ -388,7 +388,7 @@ Finally, we attempt to obtain raster images to detect land-to-land cover change 
 
     ![](images/paste-0319454E.png){width="133"}
 
--   Duplicate this raster layer and rename the 2 layers as 'Vegetation-to-Other Classes' and 'Other Classes-to-Vegetation' respectively. Using the output report as reference, reclassify the raster layer in 'Symbology' tab. For example, under the 'Vegetation-to-Other Classes' raster, we will only colourize the labels distinctly that have land cover changes from vegetation to other classes, leaving the rest a black.
+-   Duplicate this raster layer and rename the 2 layers as 'Vegetation-to-Other Classes' and 'Other Classes-to-Vegetation' respectively. Using the output report as reference, reclassify the raster layer in 'Symbology' tab. For example, under the 'Vegetation-to-Other Classes' raster, we will only colourise the labels distinctly that have land cover changes from vegetation to other classes, leaving the rest as black.
 
     ![](images/paste-890F0939.png){width="482"}
 
